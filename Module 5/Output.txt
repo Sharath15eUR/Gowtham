@@ -1,0 +1,55 @@
+gowtham-s@gowtham-s-VirtualBox:~$ ls
+backup             backup_man.sh  dir1       Downloads        groupusersfile   Music    Pictures  sample1    snap    Templates           Videos
+backup_manager.sh  Desktop        Documents  FileAnalyser.sh  large_files.txt  pgm1.sh  Public    sampledir  source  updated_config.txt
+gowtham-s@gowtham-s-VirtualBox:~$ pwd
+/home/gowtham-s
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh --help
+bash: ./FileAnalyser.sh: Permission denied
+gowtham-s@gowtham-s-VirtualBox:~$ chmod +x FileAnalyser.sh
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh --help
+Usage: ./FileAnalyser.sh [OPTION]...
+Search for files containing a specific keyword.
+
+Options:
+  -d <directory>   Search recursively in the specified directory.
+  -k <keyword>     Specify the keyword to search for.
+  -f <file>        Search for the keyword in the specified file.
+  --help           Display this help menu.
+
+Examples:
+  ./FileAnalyser.sh -d logs -k error         # Recursively search 'logs' directory for 'error'
+  ./FileAnalyser.sh -f log.txt -k warning    # Search 'log.txt' for 'warning'
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -k error
+Error: Directory 'logs' not found!
+gowtham-s@gowtham-s-VirtualBox:~$ mkdir logs
+gowtham-s@gowtham-s-VirtualBox:~$ touch file_log.txt
+gowtham-s@gowtham-s-VirtualBox:~$ cat file_log.txt
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -k error
+Searching recursively for 'error' in directory: logs
+logs/testfile.txt:1:error makes clever.
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -k hard
+Searching recursively for 'hard' in directory: logs
+logs/testfile.txt:2:key to success is hardwork and smartwork.
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -k soft
+Searching recursively for 'soft' in directory: logs
+No matches found.
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -k tough
+Searching recursively for 'tough' in directory: logs
+No matches found.
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -f testfile.txt -k to
+Error: File 'testfile.txt' not found!
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -f testfile.txt -k to
+Searching recursively for 'to' in directory: logs
+logs/testfile.txt:2:key to success is hardwork and smartwork.
+gowtham-s@gowtham-s-VirtualBox:~$ ./FileAnalyser.sh -d logs -f testfile.txt -k todo
+Searching recursively for 'todo' in directory: logs
+No matches found.
+gowtham-s@gowtham-s-VirtualBox:~$ cat errors.log
+Error: Directory 'logs' not found!
+Error: File 'testfile.txt' not found!
+gowtham-s@gowtham-s-VirtualBox:~$ ls
+backup             backup_man.sh  dir1       Downloads   FileAnalyser.sh  groupusersfile   logs   pgm1.sh   Public   sampledir  source     updated_config.txt
+backup_manager.sh  Desktop        Documents  errors.log  file_log.txt     large_files.txt  Music  Pictures  sample1  snap       Templates  Videos
+gowtham-s@gowtham-s-VirtualBox:~$ cat errors.log
+Error: Directory 'logs' not found!
+Error: File 'testfile.txt' not found!
