@@ -1,0 +1,32 @@
+gowtham-s@gowtham-s-VirtualBox:~$ cd source
+gowtham-s@gowtham-s-VirtualBox:~/source$ ls
+file1.txt  file2.txt  file3.txt  file4.txt
+gowtham-s@gowtham-s-VirtualBox:~/source$ pwd
+/home/gowtham-s/source
+gowtham-s@gowtham-s-VirtualBox:~/source$ ./backup_manager.sh "/home/gowtham-s/source" "/home/gowtham-s/backup" ".txt"
+bash: ./backup_manager.sh: No such file or directory
+gowtham-s@gowtham-s-VirtualBox:~/source$ cd ..
+gowtham-s@gowtham-s-VirtualBox:~$ pwd
+/home/gowtham-s
+gowtham-s@gowtham-s-VirtualBox:~$ ls
+backup             backup_man.sh  dir1       Downloads       large_files.txt  pgm1.sh   Public   sampledir  source     updated_config.txt
+backup_manager.sh  Desktop        Documents  groupusersfile  Music            Pictures  sample1  snap       Templates  Videos
+gowtham-s@gowtham-s-VirtualBox:~$ pwd
+/home/gowtham-s
+gowtham-s@gowtham-s-VirtualBox:~$ ./backup_manager.sh "/home/gowtham-s/source" "/home/gowtham-s/backup" ".txt"
+Files to be backed up:
+file4.txt - 0 bytes
+file3.txt - 0 bytes
+file1.txt - 0 bytes
+file2.txt - 0 bytes
+Backup completed. Report saved at /home/gowtham-s/backup/backup_report.log.
+gowtham-s@gowtham-s-VirtualBox:~$ cd backup
+gowtham-s@gowtham-s-VirtualBox:~/backup$ ls
+backup_report.log  file1.txt  file2.txt  file3.txt  file4.txt
+gowtham-s@gowtham-s-VirtualBox:~/backup$ cat backup_report.log
+Backup Summary
+================
+Total files processed: 4
+Total files backed up: 4
+Total size of files backed up: 0 bytes
+Backup directory: /home/gowtham-s/backup
