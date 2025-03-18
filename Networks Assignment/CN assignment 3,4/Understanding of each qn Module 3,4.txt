@@ -1,0 +1,33 @@
+Networking Training program 
+Module 3 and 4 assessment questions.
+ 
+Tools you can use for below questions: VirtualBox with Linux VMs, GNS3, Cisco Packet Tracer, Wireshark etc. 
+
+1. Simulate a small network with switches and multiple devices. Use ping to generate traffic and observe the MAC address table of the switch. 
+
+Ans: I have used CISCO packet tracer tool and I have constructed 2 LAN network with 2 switches and it was connected by a router.
+Then I have configured IP for each PC and router an then using PING command I generated a network traffic and viewed it using real time simulation packet capture tool.
+
+2. Capture and analyze Ethernet frames using Wireshark. Inspect the structure of the frame, including destination and source MAC addresses, Ethertype, payload, and FCS. 
+
+Ans: In wireshark I have filtered ethernet and wifi packets of PING google.com which is executed in cmd. Then by double clicking the ICMP packet captured
+we can able to see the frame structure of a packet with source address, dest address, length of data (payload) and so on.
+
+3. Use GNS3 or Packet Tracer to simulate network traffic. 
+
+Ans: I have used same network of first question and simulated network traffic using Real time simulation in CISCO packet tracer tool. 
+
+4. Configure static IP addresses, modify MAC addresses, and verify network connectivity using ping and ifconfig commands. 
+
+Ans: Successfully accomplished this task using same network and MAC address spoofing was performed along with ip coinfig.
+
+5. Troubleshoot Ethernet Communication with ping and traceroute -> Using cisco packet tracer
+
+Ans: Explanation is given along with pictures inside Qn5 folder.
+
+6. Create a simple LAN setup with two Linux machines connected via a switch. 
+7. Ping from one machine to the other. If it fails, use ifconfig to ensure the IP addresses are configured correctly. 
+8. Use traceroute to identify where the packets are being dropped if the ping fails. 
+9. Research the Linux kernel's handling of Ethernet devices and network interfaces. Write a short report on how the Linux kernel supports Ethernet communication (referencing kernel.org documentation). 
+10. Describe how you would configure a basic LAN interface using the ip command in Linux (kernel.org). 
+

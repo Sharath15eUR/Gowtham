@@ -1,0 +1,19 @@
+---------- To configure a basic LAN interface using the ip command in Linux, follow these steps: ----------------------
+
+1. Check Available Interfaces:
+ip link show
+
+2. Assign an IP Address:
+sudo ip addr add 192.168.1.100/24 dev eth0
+
+3. Bring the Interface Up:
+sudo ip link set eth0 up
+
+4. Set Default Gateway (if needed):
+sudo ip route add default via 192.168.1.1
+
+5. Verify Configuration:
+ip addr show eth0
+ip route show
+
+This configures a static IP for eth0. To make it persistent, update /etc/network/interfaces (Debian) or /etc/sysconfig/network-scripts/ifcfg-eth0 (RHEL-based). 

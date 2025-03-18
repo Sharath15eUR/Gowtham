@@ -1,0 +1,4 @@
+1. open anydesk
+2. Invite : enter the unique anydesk id of a machine who you wants to invite.
+3. If they accept the request then the session will be begun and we can access the respective remote machine.
+4. communication wil takes place using the anydesk unique id.

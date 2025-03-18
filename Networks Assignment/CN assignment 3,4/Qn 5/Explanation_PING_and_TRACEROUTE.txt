@@ -1,0 +1,4 @@
+1. There is no packet Loss in PING command so there is no error in network.
+2. While executing traceroute command packet travels through router of default gateway 10.10.10.100
+and then PC of another LAN 192.168.10.2.
+3. So from this we confirm that packet transmitting is properly happening between 2 PC's in a network.

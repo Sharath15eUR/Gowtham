@@ -1,0 +1,23 @@
+1. Consider a case, a folder has multiple files and how would copy it to destination machine path (Try using SCP, cp options in Linux) 
+
+2. Host a FTP and SFTP server and try PUT and GET operations.
+ 
+3. Explore with Wireshark/TCP-dump/cisco packet tracer tools and learn about packets filters.
+ 
+4. Understand linux utility commands like - ping, arp (Understand each params from ifconfig output)
+ 
+5. Understand what happens when duplicate IPs configured in a network.
+ 
+6. Understand how to access remote system using (VNC viewer, Anydesk, teamviewer and remote desktop connections) 
+
+7. How to check your default gateway is reachable or not and understand about default gateway. 
+
+8. Check iwconfig/ifconfig to understand in detail about network interfaces (check about interface speed, MTU and other parameters) 
+
+9. Log in to your home router's web interface (usually at 192.168.1.1 or 192.168.0.1) and check the connected devices list. 
+
+10. Explain how a DHCP server assigns IP addresses to devices in your network. 
+
+11. Using a terminal, connect to a remote machine via SSH and telnet.
+
+

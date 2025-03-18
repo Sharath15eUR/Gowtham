@@ -1,0 +1,125 @@
+QN 5 What happens when duplicate IPs are configured in a network?
+
+When two devices are assigned the same IP address in a network, it results in an IP address conflict, causing network communication issues. 
+
+Consequences of Duplicate IP Addresses:
+
+Network Disruptions: If both devices have the same IP, packets may not reach the intended device.
+
+Intermittent Connectivity: If both devices respond to ARP (Address Resolution Protocol) requests, network traffic becomes unstable.
+
+Operating System Warnings:
+Windows: "IP address conflict detected" message.
+Linux/macOS: ARP messages or logs in dmesg/syslog.
+
+DHCP Conflict Detection: If a DHCP server assigns an IP already in use, the client may reject it.
+
+Switching Loops in Case of a Misconfigured Network: If both devices have the same IP and act as routers or gateways, loops can occur.
+Security Concerns: Attackers can intentionally assign the same IP to hijack sessions (MITM attacks).
+
+
+How to Prevent and Resolve IP Conflicts?
+
+Use DHCP (Dynamic Host Configuration Protocol): It automatically assigns unique IPs.
+
+Enable IP Conflict Detection: Some OSs (e.g., Windows) detect conflicts and notify the user.
+
+Check ARP Table: Run arp -a to check conflicting IPs.
+
+Use Static IPs Carefully: Ensure no duplicate static IPs are manually configured.
+
+Reboot Devices or Renew DHCP Lease: Use ipconfig /release and ipconfig /renew (Windows) or dhclient -r && dhclient (Linux).
+
+
+
+QN 7 . How to check if your default gateway is reachable? Understanding Default Gateway
+
+Default gateway is a router that forwards traffic from your local network to other networks (e.g., the internet). 
+If a packet's destination isn't in the local network, it's sent to the default gateway.
+
+How to Check if the Default Gateway is Reachable?
+1. Identify Your Default Gateway
+
+  ipconfig or ifconfig
+
+2. Ping the Default Gateway
+ 
+  ping <gateway-IP>
+  Successful response: The gateway is reachable.
+  Request timed out / no response: The gateway is down or unreachable.
+
+3. Trace the Route to the Default Gateway
+
+  tracert <gateway-IP>   (Windows)
+  traceroute <gateway-IP>  (Linux/macOS)
+
+  This helps debug if packets are getting dropped.
+
+4. Check ARP Table for Gateway MAC Address
+If the default gateway is on the same subnet, check its MAC address:
+arp -a
+If the MAC address is missing or incorrect, there may be an issue with ARP resolution.
+
+
+
+
+QN 8 . Understanding Network Interfaces using `iwconfig` and `ifconfig`
+
+ifconfig` (Interface Configuration)
+`ifconfig` is used to configure network interfaces (deprecated in favor of `ip` command in Linux).
+Check Available Network Interfaces
+ifconfig -a
+
+This displays:
+- **Interface Name** (`eth0`, `wlan0`, etc.)
+- **IP Address** (`inet addr:192.168.1.100`)
+- **Subnet Mask** (`Mask:255.255.255.0`)
+- **MAC Address** (`HWaddr 00:1A:2B:3C:4D:5E`)
+- **MTU (Maximum Transmission Unit)**: Defines the largest packet size.
+- **RX/TX Packets & Errors**: Number of received/transmitted packets and errors.
+
+
+`iwconfig` (Wireless Network Configuration)
+`iwconfig` is used to configure Wi-Fi interfaces.
+
+Check Wireless Network Details
+
+iwconfig wlan0
+
+- **SSID (ESSID):** Name of the connected network.
+- **Mode:** `Managed` (client mode) or `Monitor` (sniffing packets).
+- **Frequency & Channel:** Used radio frequency.
+- **Tx-Power:** Transmission power of the Wi-Fi card.
+- **Signal Level:** Signal strength in dBm (e.g., `-50dBm` is strong, `-90dBm` is weak).
+- **Bit Rate:** Current speed of the wireless connection.
+
+
+
+
+QN 10. How Does a DHCP Server Assign IP Addresses?
+What is DHCP?
+Dynamic Host Configuration Protocol (DHCP) automatically assigns IP addresses, subnet masks, and other network settings to devices.
+
+DHCP Process (DORA)
+Discovery: The client (new device) sends a DHCPDISCOVER message to locate a DHCP server.
+Offer: The DHCP server responds with a DHCPOFFER containing an available IP.
+Request: The client sends a DHCPREQUEST to confirm it wants the offered IP.
+Acknowledgment: The server responds with a DHCPACK, assigning the IP.
+
+How to Check DHCP Configuration?
+
+ipconfig /all
+Shows DHCP status, lease time, and assigned IP.
+
+dhclient -v
+Requests a new IP from the DHCP server.
+
+Static vs Dynamic IP Assignment
+Static IP: Manually assigned by an admin (e.g., servers, printers).
+Dynamic IP: Assigned automatically by DHCP, expires after a lease period.
+Reserved IP: DHCP assigns a specific IP to a MAC address.
+
+Common DHCP Issues
+IP Exhaustion: No available IPs left in the DHCP pool.
+Lease Expiration: Device loses its IP and needs renewal.
+DHCP Server Unreachable: Devices cannot get an IP.
